@@ -1,0 +1,27 @@
+= link_to 'New Transaction', new_client_transaction_path(@client), :class=>"add"
+%h1 Listing Transactions
+%table
+  %tr
+    %th Order ID
+    %th Approved Amount
+    %th Settled Amount
+    %th Credited Amount
+    %th Auth Code
+    %th Auth Ticket
+    %th Actions
+  - @transactions.each do |transaction|
+    %tr
+      %td= transaction.order_id
+      %td= transaction.amount
+      %td= transaction.settled_amount
+      %td= transaction.credited_amount
+      %td= transaction.auth_code
+      %td= transaction.auth_ticket
+      %td
+        = link_to 'Show Details', client_transaction_path(@client, transaction)
+        - if transaction.settled_amount < transaction.amount
+          |
+          = link_to 'Settle', new_client_transaction_settlement_path(@client, transaction)
+        - if transaction.credited_amount < transaction.settled_amount
+          |
+          = link_to 'Credit', new_client_transaction_credit_path(@client, transaction)

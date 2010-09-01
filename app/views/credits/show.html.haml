@@ -1,0 +1,21 @@
+%p
+  %label Card Number
+  %span= @credit.cc_number
+  
+%p
+  %label Amount
+  %span= @credit.amount
+  
+%p
+  %label Facility Number
+  %span= @credit.transaction.client.facility_number
+  
+%p
+  %label Auth Code
+  %span= @credit.auth_code
+  
+%p
+  %label Auth Ticket
+  %span= @credit.auth_ticket
+
+= link_to "Back", client_transaction_credits_path(@client, @transaction)

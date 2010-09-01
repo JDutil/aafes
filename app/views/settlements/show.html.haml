@@ -1,0 +1,31 @@
+%p
+  %b Transaction
+  = @transaction.id
+
+%p
+  %label Card Number
+  %span= @transaction.cc_number
+  
+%p
+  %label Approved Amount
+  %span= @transaction.amount
+  
+%p
+  %label Facility Number
+  %span= @transaction.client.facility_number
+  
+%p
+  %label Auth Code
+  %span= @transaction.auth_code
+  
+%p
+  %label Auth Ticket
+  %span= @transaction.auth_ticket
+
+%p
+  %label Settled Amount
+  %span= @settlement.amount
+
+= link_to "Credit Transaction", new_client_transaction_credit_path(@client, @transaction)
+|
+= link_to "View All Transactions", client_transactions_path(@client)

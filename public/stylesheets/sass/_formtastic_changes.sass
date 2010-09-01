@@ -1,0 +1,70 @@
+!input_width = 200px
+!input_margin = 160px
+
+form.formtastic p, form.formtastic li, form.formtastic fieldset ol li
+  list-style-type: none
+  margin: 10px 0px
+  
+  abbr
+    color: red
+    margin-left: 2px
+  label
+    width: 150px
+    position: absolute
+    text-align: right
+
+form.formtastic li select
+  margin-left: !input_margin
+
+form.formtastic p select
+  width: !input_width
+  margin-left: !input_margin
+  
+form.formtastic li textarea
+  width: 300px
+  margin-left: !input_margin
+
+form.formtastic li.string input,
+form.formtastic li.password input,
+form.formtastic li.numeric input
+  width: !input_width
+  margin-left: !input_margin
+  
+form.formtastic li.boolean input[type=checkbox]
+  margin-left: !input_margin
+
+
+form.formtastic input[type=file]
+  margin-left: !input_margin
+  
+form.formtastic input
+  &[type=submit], &[type=button]
+    margin-left: !input_margin
+    border: 1px solid #999
+    padding: 3px
+    background: #eee
+    -moz-border-radius: 5px 5px 5px 5px
+    -webkit-border-bottom-left-radius: 5px 5px
+    -webkit-border-bottom-right-radius: 5px 5px
+    -webkit-border-top-left-radius: 5px 5px
+    -webkit-border-top-right-radius: 5px 5px
+  &[type=submit]:hover, &[type=button]:hover
+    background: #999
+    cursor: pointer
+    color: white  
+  
+form.formtastic p.inline-errors
+  color: red
+  padding-left: 160px
+  margin-top: 2px
+  
+form.formtastic fieldset ol li p.inline-errors
+  margin-left: 0px
+  
+form.formtastic li p.inline-hints
+  padding-left: 160px
+  margin-top: 4px
+  font-size: 12px
+  
+.formtastic .cancel
+  padding-left: 160px

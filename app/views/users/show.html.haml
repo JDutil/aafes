@@ -1,0 +1,19 @@
+%p
+  %label Email:
+  %span= @user.email
+
+%p
+  %label Clients:
+  %ul
+    - @user.clients.each do |client|
+      %li= client.name
+      
+%p
+  %label Roles:
+  %ul
+    - @user.roles.each do |role|
+      %li= role.title
+
+= link_to 'Edit', edit_user_path(@user) 
+|
+= link_to 'Back', users_path 

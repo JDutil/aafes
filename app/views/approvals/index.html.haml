@@ -1,0 +1,16 @@
+%h1 Listing approvals
+= link_to 'New Approval', new_client_transaction_approval_path(@client, @transaction)
+
+%table
+  %tr
+    %th Card Number
+    %th Amount
+    %th Actions
+  - @approvals.each do |approval|
+    %tr
+      %td= approval.cc_number
+      %td= approval.amount
+      %td
+        = link_to 'Show', client_transaction_approval_path(@client, @transaction, approval)
+        = link_to 'Edit', edit_client_transaction_approval_path(@client, @transaction, approval)
+        = link_to 'Destroy', client_transaction_approval_path(@client, @transaction, approval), :confirm => 'Are you sure?', :method => :delete

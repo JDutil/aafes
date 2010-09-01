@@ -1,0 +1,5 @@
+= semantic_form_for [@client, @transaction, @approval] do |f|
+  = f.input :cc_number
+  = f.input :amount
+  = f.input :transaction
+  = f.commit_button :label => "Submit"

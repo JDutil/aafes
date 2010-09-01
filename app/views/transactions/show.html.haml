@@ -1,0 +1,44 @@
+%p
+  %b User:
+  = @transaction.user.email
+
+%p
+  %b Facility number:
+  = @transaction.client.facility_number 
+
+%p
+  %b Order:
+  = @transaction.order_id 
+  
+%p
+  %b Card Number:
+  = @transaction.cc_number
+
+
+%p
+  %b Auth Code:
+  = @transaction.auth_code
+
+%p
+  %b Auth Ticket:
+  = @transaction.auth_ticket
+
+%p
+  %b Approved Amount:
+  = @transaction.amount
+
+%p
+  %b Settled Amount:
+  = @transaction.settled_amount
+  
+%p
+  %b Credited Amount:
+  = @transaction.credited_amount
+
+= link_to 'View All Transactions', client_transactions_path(@client)
+- if @transaction.settled_amount < @transaction.amount
+  |
+  = link_to 'Settle Transaction', new_client_transaction_settlement_path(@client, @transaction)
+- if @transaction.credited_amount < @transaction.settled_amount
+  |
+  = link_to 'Credit Transaction', new_client_transaction_credit_path(@client, @transaction)

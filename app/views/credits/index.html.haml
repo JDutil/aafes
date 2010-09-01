@@ -1,0 +1,14 @@
+%h1 Listing credits
+= link_to 'New Credit', new_client_transaction_credit_path
+%table
+  %tr
+    %th
+    %th
+    %th
+
+- @credits.each do |credit|
+  %tr
+    %td
+      = link_to 'Show', client_transaction_credit_path(@client, @transaction, credit)
+      = link_to 'Edit', edit_client_transaction_credit_path(@client, @transaction, credit) 
+      = link_to 'Destroy', client_transaction_credit_path(@client, @transaction, credit), :confirm => 'Are you sure?', :method => :delete

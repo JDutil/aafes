@@ -1,0 +1,43 @@
+%p
+  %b Transaction
+  = @transaction.id
+  
+%p
+  %b User:
+  = @transaction.user.email
+
+%p
+  %b Facility number:
+  = @transaction.client.facility_number 
+
+%p
+  %b Order:
+  = @transaction.order_id 
+  
+%p
+  %b Card Number:
+  = @transaction.cc_number
+
+%p
+  %b Auth Code:
+  = @transaction.auth_code
+      
+%p
+  %b Auth Ticket:
+  = @transaction.auth_ticket
+
+%p
+  %b Approved Amount:
+  = @transaction.amount
+
+%p
+  %b Settled Amount:
+  = @transaction.settled_amount
+  
+%p
+  %b Credited Amount:
+  = @transaction.credited_amount
+
+= semantic_form_for [@client, @transaction, @credit] do |f|
+  = f.input :amount, :hint => "Enter the amount you want to credit in pennies. Example: $5 should be entered as 500.  You may credit as many times as you would like, but you cannot credit the transaction more than you have settled."
+  = f.commit_button :label => "Submit"

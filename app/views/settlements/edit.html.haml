@@ -1,0 +1,5 @@
+%h1 Editing settlement
+= render 'form'
+= link_to 'Show', client_transaction_settlement_path(@client, @transaction, @settlement)
+|
+= link_to 'Back', client_transaction_settlements_path(@client, @transaction)

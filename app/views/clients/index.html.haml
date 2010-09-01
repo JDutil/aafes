@@ -1,0 +1,22 @@
+= link_to 'New Client', new_client_path, :class=>"add"
+
+%h1 Listing Clients
+%table
+  %tr
+    %th Name
+    %th Facility Number
+    %th Users
+    %th Actions
+
+  - @clients.each do |client|
+    %tr
+      %td= client.name
+      %td= client.facility_number
+      %td
+        %ul
+          - client.users.each do |user|
+            %li= user.email
+      %td
+        = link_to 'Show', client, :class=>"show"
+        = link_to 'Edit', edit_client_path(client), :class=>"edit"
+        = link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete, :class=>"destroy"

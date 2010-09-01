@@ -1,0 +1,13 @@
+%p
+  %label Card Number
+  %span= @approval.cc_number
+  
+%p
+  %label Amount
+  %span= @approval.amount
+  
+%p
+  %label Facility Number
+  %span= @approval.transaction.client.facility_number
+
+= link_to 'Back', client_transaction_approvals_path(@client, @transaction)

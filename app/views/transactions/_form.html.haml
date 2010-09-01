@@ -1,0 +1,8 @@
+= semantic_form_for [@client, @transaction] do |f|
+  = f.input :order_id, :hint => "Use the unique order id from your store's orders here to track your Star Card Transactions against your orders."
+  = f.input :cc_number, :label => "Card Number", :hint => "Use the customers Star Card account number."
+  = f.input :amount, :hint => "The amount to charge the Star Card in cents. Example $10.00 should be entered as 1000."
+  = f.commit_button :label => "Submit"
+  .cancel
+    or
+    = link_to 'cancel', client_transactions_path(@client)

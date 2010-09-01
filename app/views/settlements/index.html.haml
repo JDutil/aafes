@@ -1,0 +1,12 @@
+%h1 Listing settlements
+= link_to 'New Settlement', new_client_transaction_settlement_path(@client, @transaction)
+%table
+  %tr
+    %th
+    %th
+    %th
+  - @settlements.each do |settlement|
+    %tr
+      %td= link_to 'Show', client_transaction_settlement_path(@client, @transaction, settlement)
+      %td= link_to 'Edit', edit_client_transaction_settlement_path(@client, @transaction, settlement)
+      %td= link_to 'Destroy', client_transaction_settlement_path(@client, @transaction, settlement), :confirm => 'Are you sure?', :method => :delete

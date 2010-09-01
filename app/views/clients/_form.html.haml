@@ -1,0 +1,7 @@
+= semantic_form_for(@client) do |f|
+  = f.input :name
+  = f.input :facility_number
+  = f.commit_button :label => "Save"
+  .cancel
+    or
+    = link_to 'cancel', clients_path

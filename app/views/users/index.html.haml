@@ -1,0 +1,25 @@
+= link_to 'New User', new_user_path, :class=>"add"
+
+%h1 Listing users
+%table
+  %tr
+    %th Email
+    %th Clients
+    %th Roles
+    %th Actions
+
+  - @users.each do |user|
+    %tr
+      %td= user.email
+      %td
+        %ul
+          - user.clients.each do |client|
+            %li= client.name
+      %td
+        %ul
+          - user.roles.each do |role|
+            %li= role.title
+      %td
+        = link_to 'Show', user, :class=>"show"
+        = link_to 'Edit', edit_user_path(user), :class => "edit"
+        = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete, :class => :destroy

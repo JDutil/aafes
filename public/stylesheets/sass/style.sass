@@ -1,0 +1,115 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  font-size: 100%
+  vertical-align: baseline
+  background: transparent
+  
+@import "formtastic"
+@import "formtastic_changes"
+  
+body
+  background: #E5E5E5
+  
+  a
+    color: #4183C4
+    text-decoration: none
+    
+    &:hover
+      text-decoration: underline
+  
+  h1
+    font-size: 20px
+    
+    &.left-margin
+      margin-left: !input_margin
+    
+  #notice_notice
+    background: url(/images/true.png) 8px 50% no-repeat
+    background-color: #dfffdf
+    border: 1px solid #9fcf9f
+    color: #005f00
+    padding: 4px 4px 4px 30px
+    margin: 0px 0px 10px 0px
+    -moz-border-radius: 5px
+    -webkit-border-radius: 5px
+    border-radius: 5px
+    
+  #notice_error
+    background: url(/images/exclamation.png) 8px 50% no-repeat
+    background-color: #ffe3e3
+    border: 1px solid #dd0000
+    color: #880000
+    padding: 4px 4px 4px 30px
+    margin: 0px 0px 10px 0px
+    -moz-border-radius: 5px
+    -webkit-border-radius: 5px
+    border-radius: 5px
+
+  a.add
+    padding-left: 20px
+    background: url(/images/add.png) 0 50% no-repeat
+    
+  a.show
+    padding-left: 20px
+    background: url(/images/magnifier.png) 0 50% no-repeat
+  
+  a.edit
+    padding-left: 20px
+    background: url(/images/pencil.png) 0 50% no-repeat
+
+  a.destroy
+    padding-left: 20px
+    background: url(/images/delete.png) 0 50% no-repeat 
+    
+  #page
+    width: 940px
+    padding: 10px
+    margin: 10px auto
+    background: #fff
+    border-radius: 5px
+    -moz-border-radius: 5px
+    -webkit-border-radius: 5px
+    border: 1px solid #ccc
+    
+    #client-info
+      width: 450px
+      float: left
+      margin-bottom: 20px
+      
+    #logout
+      float: right
+      text-align: right
+      margin-bottom: 20px
+    
+    h1
+      margin: 10px 0px
+      
+    table
+      width: 100%
+      border-collapse: collapse
+      th, td
+        border: 1px solid
+        padding: 5px
+        
+    label
+      font-weight: bold  
+      
+    ul
+      padding-left: 15px
+      
+    form label
+      font-weight: normal
+      
+  #login
+    width: 430px
+    padding: 20px 20px 10px 20px
+    margin: 50px auto
+    background: #fff
+    border-radius: 5px
+    -moz-border-radius: 5px
+    -webkit-border-radius: 5px
+    border: 1px solid #ccc
+    

@@ -1,0 +1,13 @@
+= semantic_form_for(@user) do |f|
+  = f.input :email
+  = f.input :password
+  = f.input :password_confirmation
+  - if permitted_to? :new, :users
+    = f.input :clients
+    = f.input :roles
+    = f.input :confirmed, :as => :select
+    = f.input :confirmed_on, :as => :string, :input_html=>{:class=>"datepicker"}
+  = f.commit_button :label => "Save"
+  .cancel
+    or
+    = link_to 'cancel', users_path 
