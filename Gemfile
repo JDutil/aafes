@@ -7,9 +7,9 @@ gem 'rails', '3.0.0.rc'
 
 gem 'mysql'
 gem 'haml'
-gem 'authlogic', '>= 2.1.6'
-gem 'declarative_authorization', '>= 0.5.0'
-gem 'formtastic', :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
+gem 'authlogic', '~> 2.1.6'
+gem 'declarative_authorization', '~> 0.5.0'
+gem 'formtastic', '1.1.0.beta'
 gem 'nokogiri', '1.4.1'
 
 # Deploy with Capistrano

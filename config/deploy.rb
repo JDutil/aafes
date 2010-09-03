@@ -20,8 +20,8 @@ role :web, server_hostname
 role :app, server_hostname
 role :db, server_hostname, :primary => true
 
-#after 'deploy:symlink', 'deploy:symlink_upload_directories', 'deploy:fix_file_permissions'
 after "deploy:update_code", "deploy:cleanup"
+after "deploy:symlink", 'deploy:bundler'
 
 namespace :deploy do
 
@@ -32,28 +32,10 @@ namespace :deploy do
     #`curl -s http://native-apparel.com  $2 > /dev/null`
   end
   
-  # desc "Fix file permissions" 
-  # task :fix_file_permissions, :roles => [ :app, :db, :web ] do 
-  #   # Fix permission error occurring after each deployment
-  #   # cd /home/native/current/public
-  #   # chmod 666 -R ./ 
-  #   # find . -type d -exec chmod 777 {} \;
-  #   run "cd #{release_path}/public && chmod 666 -R ./"
-  #   run "cd #{release_path}/public && find . -type d -exec chmod 777 {} \\;"
-  # end
 
-  # desc "Update the crontab file"
-  # task :update_crontab, :roles => :db do
-  #   run "cd #{release_path} && whenever --update-crontab #{application}"
-  # end
-	
-  # desc "Creates symlinks from shared_path to upload directories for ideas, problems, comics, ..."
-  # task :symlink_upload_directories , :roles => :app do
-  #   [
-  #     'public/assets'
-  #   ].each do |upload_path|
-  #     run "mkdir -p #{shared_path}/files/#{upload_path}"
-  #     run "rm -rf #{current_path}/#{upload_path} && ln -nfs #{shared_path}/files/#{upload_path} #{current_path}/#{upload_path}"
-  #   end
-  # end
+  desc "run bundler"
+  task :bundler, :roles => :app do
+    run "cd #{release_path} && bundle install"
+  end
+
 end
